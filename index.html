@@ -1,49 +1,27 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/mirage-gothic" rel="stylesheet">
     <link rel="shortcut icon" href="https://i.ibb.co/JyWHs6T/IMG-20240305-181315.png">
     <meta property="og:image" content="https://i.ibb.co/JyWHs6T/IMG-20240305-181315.png">
     <meta property="og:description" content="bentar lgi tahun 2026 ygy🤭😜">
     <meta name="description" content="bentar lgi tahun 2026 ygy🤭😜">
     <style>
-        * {
+        body {
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Nunito', sans-serif;
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            background-color: #000000;
             color: white;
             position: relative;
-            overflow: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: moveBackground 20s linear infinite;
-        }
-
-        @keyframes moveBackground {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
         }
 
         .loading-overlay {
@@ -52,7 +30,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.7);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -63,81 +41,33 @@
         }
 
         .loading-spinner {
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            border-top: 4px solid white;
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
             border-radius: 50%;
             width: 50px;
             height: 50px;
             animation: spin 1s linear infinite;
+            margin-right: 10px;
         }
 
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-
+      
         .container {
             text-align: center;
-            position: relative;
-            z-index: 1;
-            padding: 20px;
-        }
-
-        .logo-container {
-            margin-bottom: 30px;
-            animation: fadeInDown 1s ease-out;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         img {
-            width: 200px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
+            width: 250px;
+            margin-bottom: 20px;
+            border-radius: 15px;
         }
 
-        img:hover {
-            transform: scale(1.05);
-        }
-
-        .title-wrapper {
-            margin-bottom: 40px;
-            animation: fadeIn 1s ease-out 0.3s both;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .title-text {
+        .hitung {
+            font-family: Arial;
             color: white;
-            font-family: 'Mirage Gothic', sans-serif;
-            font-size: 32px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            background: linear-gradient(90deg, #ffffff 0%, #cccccc 50%, #ffffff 100%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shine 3s linear infinite;
-        }
-
-        @keyframes shine {
-            0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
         }
 
         #countdown {
@@ -146,128 +76,53 @@
             justify-content: center;
             align-items: center;
             flex-wrap: nowrap;
-            gap: 15px;
             padding: 20px;
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .unit {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 20px 25px;
-            min-width: 100px;
-            transition: all 0.3s ease;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-        }
-
-        .unit:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
-        }
-
-        .unit span:first-child {
-            font-size: 40px;
-            font-weight: 800;
-            display: block;
-            margin-bottom: 8px;
-            color: white;
+            margin: 10px;
         }
 
         .title {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 600;
+            font-size: 18px;
         }
 
+        a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        a:active {
+            text-decoration: underline;
+        }
+
+        .apalah {
+            color: hsl(0,0%,100%);
+            font-family: 'Mirage Gothic', sans-serif;
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
+        
         #currentDate {
             font-family: 'Nunito', sans-serif;
+            text-decoration: overline;
             position: fixed;
-            top: 20px;
-            left: 20px;
+            top: 10px;
+            left: 10px;
             font-size: 16px;
-            font-weight: 600;
-            padding: 12px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            animation: fadeIn 1s ease-out 0.9s both;
         }
 
         footer {
-            color: rgba(255, 255, 255, 0.6);
+            color: #0366d6;
             text-align: center;
-            font-size: 14px;
-            font-family: 'Nunito', sans-serif;
-            margin-top: 40px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            animation: fadeIn 1s ease-out 1.2s both;
-        }
-
-        .celebration-message {
-            font-size: 28px;
-            font-weight: 700;
-            line-height: 1.6;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            animation: celebrationPulse 1s ease-in-out infinite;
-        }
-
-        @keyframes celebrationPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            font-size: 13px;
+            font-family: Sans-Serif;
+            margin-top: 20px;
         }
 
         @media (max-width: 768px) {
-            .title-text {
-                font-size: 24px;
-            }
-
             #countdown {
-                gap: 15px;
                 flex-wrap: wrap;
-            }
-
-            .unit {
-                padding: 20px 25px;
-                min-width: 100px;
-            }
-
-            .unit span:first-child {
-                font-size: 36px;
-            }
-
-            #currentDate {
-                font-size: 14px;
-                padding: 10px 15px;
-                top: 10px;
-                left: 10px;
             }
         }
     </style>
@@ -278,38 +133,29 @@
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-spinner"></div>
     </div>
-    
-    <div id="currentDate"></div>
-    
+    <div id="currentDate" style="position: absolute; top: 10px; left: 10px; font-size: 16px;"></div>
     <div class="container">
-        <div class="logo-container">
-            <img src="https://i.ibb.co/1RS4Lt7/IMG-20240305-190739.jpg" alt="Logo">
-        </div>
-        
-        <div class="title-wrapper">
-            <div class="title-text">Countdown Tahun Baru 2026</div>
-        </div>
-        
-        <div id="countdown">
-            <div class="unit">
-                <span id="daysValue">00</span>
+        <img src="https://i.ibb.co/1RS4Lt7/IMG-20240305-190739.jpg" alt="Logo">
+        <marquee><span class="apalah">Countdown Tahun Baru 2026</span></marquee>
+        <h1 id="countdown">
+            <div id="days" class="unit">
+                <span id="daysValue"></span><br>
                 <span class="title">Hari</span>
             </div>
-            <div class="unit">
-                <span id="hoursValue">00</span>
+            <div id="hours" class="unit">
+                <span id="hoursValue"></span><br>
                 <span class="title">Jam</span>
             </div>
-            <div class="unit">
-                <span id="minutesValue">00</span>
+            <div id="minutes" class="unit">
+                <span id="minutesValue"></span><br>
                 <span class="title">Menit</span>
             </div>
-            <div class="unit">
-                <span id="secondsValue">00</span>
+            <div id="seconds" class="unit">
+                <span id="secondsValue"></span><br>
                 <span class="title">Detik</span>
             </div>
-        </div>
-        
-        <footer>&copy; 2025 Eberárdoⲋ Official</footer>
+        </h1>
+        <footer>&copy; Eberárdoⲋ Official</footer>
     </div>
 
     <script>
@@ -324,40 +170,39 @@
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            const formattedDays = days < 10 ? `0${days}` : days;
             const formattedHours = hours < 10 ? `0${hours}` : hours;
             const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
             const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
 
-            document.getElementById("daysValue").textContent = formattedDays;
-            document.getElementById("hoursValue").textContent = formattedHours;
-            document.getElementById("minutesValue").textContent = formattedMinutes;
-            document.getElementById("secondsValue").textContent = formattedSeconds;
+            document.getElementById("daysValue").innerHTML = days;
+            document.getElementById("hoursValue").innerHTML = formattedHours;
+            document.getElementById("minutesValue").innerHTML = formattedMinutes;
+            document.getElementById("secondsValue").innerHTML = formattedSeconds;
 
             const currentDateElement = document.getElementById("currentDate");
-            currentDateElement.textContent = getCurrentDate();
+            currentDateElement.innerHTML = getCurrentDate();
 
             if (distance <= 0) {
                 clearInterval(countdown);
-                document.getElementById("countdown").innerHTML = '<div class="celebration-message">🎉 Selamat Tahun Baru 2026! 🎊<br>Semoga tahun ini membawa kebahagiaan dan kesuksesan!</div>';
+                document.getElementById("countdown").innerHTML = "🎉 Selamat Tahun Baru 2026! Semoga tahun ini penuh kebahagiaan dan kesuksesan! 🎊";
             }
         }, 1000);
 
         function getCurrentDate() {
             const now = new Date();
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            return now.toLocaleDateString('id-ID', options);
+            return now.toLocaleDateString('id', options);
         }
-
+        
         document.onreadystatechange = function () {
-            const loadingOverlay = document.getElementById('loadingOverlay');
+            var loadingOverlay = document.getElementById('loadingOverlay');
             
-            if (document.readyState === 'complete') {
+            if (document.readyState == 'complete') {
                 loadingOverlay.style.visibility = 'hidden';
-                loadingOverlay.style.opacity = '0';
+                loadingOverlay.style.opacity = 0;
             } else {
                 loadingOverlay.style.visibility = 'visible';
-                loadingOverlay.style.opacity = '1';
+                loadingOverlay.style.opacity = 1;
             }
         };
     </script>
